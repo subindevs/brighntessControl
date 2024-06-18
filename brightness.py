@@ -1,12 +1,11 @@
 import datetime
-import time
 import screen_brightness_control as sbc
 
 
-start_hour = 16
-start_minute = 23
-stop_hour = 18
-stop_minute = 26
+start_hour = 8
+start_minute = 0
+stop_hour = 24
+stop_minute = 0
 day_brightness = 100
 night_brightness = 50
 
@@ -22,9 +21,9 @@ def adjust_brightness():
     current_hour = datetime.datetime.now()
 
     if start_time <= current_hour.time() < stop_time:
-        set_brightness(60)  # Set brightness to 50% from 9 AM to 5 PM
+        set_brightness(day_brightness) 
     else:
-        set_brightness(30)  # Set brightness to 30% from 5 PM to 9 AM
+        set_brightness(night_brightness)  
 
 if __name__ == "__main__":
     adjust_brightness()
